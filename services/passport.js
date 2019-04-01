@@ -19,7 +19,8 @@ module.exports = () => {
       {
         clientID: keys.googleClientID,
         clientSecret: keys.googleClientSecret,
-        callbackURL: "/auth/google/callback"
+        callbackURL: "/auth/google/callback",
+        proxy: true
       },
       async (accessToken, refreshToken, profile, done) => {
         // Create an instance of Model class called model instance and save to the MongoDB with 'save' function
