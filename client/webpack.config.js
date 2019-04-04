@@ -15,7 +15,8 @@ module.exports = {
       "react-redux",
       "react-hot-loader",
       "redux-form",
-      "redux-thunk"
+      "redux-thunk",
+      "axios"
     ]
   },
   output: {
@@ -47,6 +48,9 @@ module.exports = {
     proxy: {
       // proxy URLs to backend development server
       "/auth/google": {
+        target: "http://localhost:5000"
+      },
+      "/api/*": {
         target: "http://localhost:5000"
       }
     }
