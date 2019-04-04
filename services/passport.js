@@ -25,19 +25,18 @@ module.exports = () => {
       async (accessToken, refreshToken, profile, done) => {
         // Create an instance of Model class called model instance and save to the MongoDB with 'save' function
 
-        // eslint-disable-next-line no-new
         const existingUser = await User.findOne({ googleId: profile.id });
-        if (!existingUser) {
-          const user = await new User({
-            googleId: profile.id
-          }).save();
-          console.log("\x1b[36m%s\x1b[0m", "User Created.");
-
-          done(null, user);
-        } else {
+        if (existingUser) {
           console.log("\x1b[36m%s\x1b[0m", "User already exists.");
-          done(null, existingUser);
+          return done(null, existingUser);
         }
+
+        const user = await new User({
+          googleId: profile.id
+        }).save();
+        console.log("\x1b[36m%s\x1b[0m", "User is Created.");
+
+        return done(null, user);
       }
     )
   );
