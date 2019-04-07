@@ -84,7 +84,11 @@ module.exports = {
   resolve: { extensions: ["*", ".js", ".jsx"] },
   plugins: [
     new webpack.HotModuleReplacementPlugin(),
-    new CopyPlugin(),
+    new CopyPlugin([{
+      from: 'public/index.html',
+      
+        
+    }]),
     new CleanWebpackPlugin(),
     new MiniCssExtractPlugin({
       filename: "[name].css"
