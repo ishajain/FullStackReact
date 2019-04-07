@@ -12,12 +12,14 @@
   "license": "ISC",
   "dependencies": {
     "axios": "^0.18.0",
+    "dotenv-webpack": "^1.7.0",
     "materialize-css": "^1.0.0",
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
     "react-hot-loader": "^4.8.2",
     "react-redux": "^6.0.1",
     "react-router-dom": "^5.0.0",
+    "react-stripe-checkout": "^2.6.3",
     "redux": "^4.0.1",
     "redux-form": "^8.1.0",
     "redux-thunk": "^2.3.0"

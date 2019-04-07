@@ -32,7 +32,8 @@ module.exports = () => {
         }
 
         const user = await new User({
-          googleId: profile.id
+          googleId: profile.id,
+          credits:0
         }).save();
         console.log("\x1b[36m%s\x1b[0m", "User is Created.");
 

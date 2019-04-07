@@ -3,6 +3,7 @@ const webpack = require("webpack");
 const HtmlWebPackPlugin = require("html-webpack-plugin");
 const CleanWebpackPlugin = require("clean-webpack-plugin");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
+const Dotenv = require("dotenv-webpack");
 
 module.exports = {
   mode: "development",
@@ -11,9 +12,11 @@ module.exports = {
     vendor: [
       "react",
       "react-dom",
-      "redux",
       "react-redux",
       "react-hot-loader",
+      "react-router-dom",
+      "react-stripe-checkout",
+      "redux",
       "redux-form",
       "redux-thunk",
       "axios"
@@ -85,6 +88,7 @@ module.exports = {
     new CleanWebpackPlugin(),
     new MiniCssExtractPlugin({
       filename: "[name].css"
-    })
+    }),
+    new Dotenv()
   ]
 };

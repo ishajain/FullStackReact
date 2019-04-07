@@ -8,3 +8,11 @@ export const fetchUser = () => async dispatch => {
     payload: user.data
   });
 };
+
+export const handleStripeToken = token => async dispatch => {
+  const user = await Axios.post("/api/stripe", token);
+  dispatch({
+    type: FETCH_USER,
+    payload: user.data
+  });
+};
