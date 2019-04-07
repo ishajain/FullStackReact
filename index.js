@@ -33,14 +33,13 @@ billingRoutes(app);
 
 if (process.env.NODE_ENV === "production") {
 
-  console.log("\x1b[36m%s\x1b[0m", "1");
-
-  app.use(express.static("client/dist"));
-
-  console.log("\x1b[36m%s\x1b[0m", "2");
+  
   const path = require("path");
+
+  app.use(express.static(path.join(__dirname,'client/dist')));
+  
   app.get("*", (req, res) => {
-    console.log("\x1b[36m%s\x1b[0m", __dirname);
+    
     res.sendFile(path.resolve(__dirname, "client", "dist", "index.html"));
   });
 }
