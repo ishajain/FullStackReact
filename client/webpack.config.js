@@ -1,6 +1,6 @@
 const path = require("path");
 const webpack = require("webpack");
-const CopyPlugin = require("copy-webpack-plugin");
+//const CopyPlugin = require("copy-webpack-plugin");
 const CleanWebpackPlugin = require("clean-webpack-plugin");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const Dotenv = require("dotenv-webpack");
@@ -84,11 +84,11 @@ module.exports = {
   resolve: { extensions: ["*", ".js", ".jsx"] },
   plugins: [
     new webpack.HotModuleReplacementPlugin(),
-    new CopyPlugin([{
-      from: 'public/index.html',
-      
+    // new CopyPlugin([{
+    //   from: 'public/index.html',
+    //   to:"dist"
         
-    }]),
+    // }]),
     new CleanWebpackPlugin(),
     new MiniCssExtractPlugin({
       filename: "[name].css"
