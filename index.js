@@ -6,8 +6,10 @@ const bodyParser = require("body-parser");
 const authRoutes = require("./routes/authRoutes");
 const billingRoutes = require("./routes/billingRoutes");
 const keys = require("./config/keys");
-require("./models/user");
+require("./models/User");
+require("./models/Survey");
 const passport = require("./services/passport");
+const surveyRoutes = require("./routes/surveyRoutes");
 
 passport();
 
@@ -30,16 +32,16 @@ app.use(passportLib.initialize());
 app.use(passportLib.session());
 authRoutes(app);
 billingRoutes(app);
+surveyRoutes(app);
 
-if (process.env.NODE_ENV === 'production') {
-  
-  const path = require('path');
+if (process.env.NODE_ENV === "production") {
+  const path = require("path");
 
-  app.use(express.static('client'));
-  
-  app.get('*', (req,res) =>{
-    res.sendFile(path.join(__dirname+'/client/dist/index.html'));
-});
+  app.use(express.static("client"));
+
+  app.get("*", (req, res) => {
+    res.sendFile(path.join(__dirname + "/client/dist/index.html"));
+  });
 }
 const PORT = process.env.PORT || 5000;
 app.listen(PORT);
