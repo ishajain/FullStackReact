@@ -16,3 +16,15 @@ export const handleStripeToken = token => async dispatch => {
     payload: user.data
   });
 };
+
+export const sendSurvey = (formValues, history) => async dispatch => {
+  const user = await Axios.post("/api/surveys", formValues);
+  //Redirect Logic
+
+  history.push("/surveys");
+
+  dispatch({
+    type: FETCH_USER,
+    payload: user.data
+  });
+};

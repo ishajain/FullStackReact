@@ -19,7 +19,8 @@ module.exports = {
       "redux",
       "redux-form",
       "redux-thunk",
-      "axios"
+      "axios",
+      "lodash"
     ]
   },
   output: {
@@ -95,4 +96,4 @@ module.exports = {
     }),
     new Dotenv()
   ]
-}
+};
