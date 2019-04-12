@@ -1,4 +1,4 @@
-import { FETCH_USER } from "./types";
+import { FETCH_USER, FETCH_SURVEYS } from "./types";
 import Axios from "axios";
 
 export const fetchUser = () => async dispatch => {
@@ -26,5 +26,14 @@ export const sendSurvey = (formValues, history) => async dispatch => {
   dispatch({
     type: FETCH_USER,
     payload: user.data
+  });
+};
+
+export const getAllSurveys = () => async dispatch => {
+  const surveyList = await Axios.get("/api/surveys");
+
+  dispatch({
+    type: FETCH_SURVEYS,
+    payload: surveyList.data
   });
 };

@@ -1,3 +1,4 @@
 export const FETCH_USER = "FETCH_USER";
 export const HANDLE_STRIPE_TOKEN = "HANDLE_STRIPE_TOKEN";
 export const SEND_SURVEY = "SEND_SURVEY";
+export const FETCH_SURVEYS = "FETCH_SURVEYS";
